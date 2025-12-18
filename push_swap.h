@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:46:13 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 15:28:03 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:34:40 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 typedef struct s_list
 {
@@ -39,8 +40,9 @@ char	*copy_word(char *str, int len);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(int content);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-
+void	ft_lstclear(t_list **lst);
+int	check(t_stack *a);
+void	ExitError(void);
 
 
 #endif

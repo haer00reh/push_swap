@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:13:06 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 15:23:37 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:34:53 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ t_list	*ft_lstnew(int	content)
 	return (new);
 }
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*curr;
 	t_list	*next;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	curr = *lst;
 	while (curr)
 	{
 		next = curr->next;
-		del(curr->content);
 		free(curr);
 		curr = next;
 	}

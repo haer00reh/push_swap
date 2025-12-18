@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 15:28:26 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:37:14 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ void	parse_input(int ac, char **av, t_list **list)
 		free(s);
 }
 
+void	print_stack(t_stack *a)
+{
+	while (a->top)
+	{
+		printf("%d\n", a->top->content);
+		a->top = a->top->next;
+	}
+}
+
 int main(int ac, char **av)
 {
 	t_list	*list;
@@ -50,11 +59,13 @@ int main(int ac, char **av)
 	a.size = ft_lstsize(list);
 		if (check(&a))
 		{
-			ft_lstclear(&a.top, free);
+			ft_lstclear(&a.top);
+			ExitError();
 			return (0);
 		}
 	b.top = NULL;
 	b.size = 0;
+	print_stack(&a);
 	}
 	return (0);
 }

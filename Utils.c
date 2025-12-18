@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:42:35 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 15:46:42 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:29:39 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,18 @@ long	ft_atol(char *str)
 	{
 		if (*str == '-')
 			sign = -1;
-		*str++;
+		str++;
 	}
 	if (*str < '0' || *str > '9')
 		ExitError();
-	while (*str >= '0' && *str <= '9')
+	while (*str)
 	{
 		if (*str < '0' || *str > '9')
 			ExitError();
 		nbr = (nbr * 10) + (*str - '0');
-		if ((sign == 1 && nbr == 2147483647)
-			|| sign == -1 && nbr == 2147483648)
-			ExitError();		
+		if ((sign == 1 && nbr > 2147483647)
+			|| sign == -1 && nbr > 2147483648)
+			ExitError();
 		str++;
 	}
 	return (nbr * sign);

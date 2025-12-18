@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:31:33 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 14:56:46 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:43:16 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	IsSorted(t_list *list)
 }
 void	ExitError(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 int	HasDup(t_list *list)
@@ -55,16 +55,17 @@ int	OutOfRange(t_list *list)
 		if (list->content < -2147483648 || list->content > 2147483647)
 			return (1);
 		list = list->next;
-	}	
+	}
+	return (0);
 }
 
 int	check(t_stack *a)
 {
 	if (!a || !a->top)
 		return (1);
-	if (!OutOfRange(a->top))
+	if (OutOfRange(a->top))
 		ExitError();
-	if (!IsSorted(a->top))
+	if (IsSorted(a->top))
 		return(1);
 	if (HasDup(a->top))
 		ExitError();
