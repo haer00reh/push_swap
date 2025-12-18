@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 15:16:09 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:28:26 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	parse_input(int ac, char **av, t_list **list)
 		j = 0;
 		while (s[j])
 		{
-			ft_lstadd_back(list, ft_lstnew(ft_atoi(s[j])));
+			ft_lstadd_back(list, ft_lstnew(ft_atol(s[j])));
 			j++;
 		}
 		i++;

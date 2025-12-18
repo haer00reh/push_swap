@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:46:13 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 15:16:17 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:28:03 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stack
 char	**ft_split(char *str, char sep);
 void	free_split(char **split);
 int		count_words(char *str, char sep);
-long	ft_atoi(char *str);
+long	ft_atol(char *str);
 char	*copy_word(char *str, int len);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   Utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:42:35 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/17 18:24:57 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:46:42 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,29 @@ char	*copy_word(char *str, int len)
 	return (s);
 }
 
-long	ft_atoi(char *str)
+long	ft_atol(char *str)
 {
 	long (sign), (nbr);
-	nbr = 0;
 	sign = 1;
+	nbr = 0;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-			sign = -sign;
-		str++;
+			sign = -1;
+		*str++;
 	}
+	if (*str < '0' || *str > '9')
+		ExitError();
 	while (*str >= '0' && *str <= '9')
 	{
+		if (*str < '0' || *str > '9')
+			ExitError();
 		nbr = (nbr * 10) + (*str - '0');
+		if ((sign == 1 && nbr == 2147483647)
+			|| sign == -1 && nbr == 2147483648)
+			ExitError();		
 		str++;
 	}
 	return (nbr * sign);
