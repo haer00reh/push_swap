@@ -6,16 +6,11 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 14:22:26 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:44:23 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	check(t_stack *a)
-{
-	
-}
 
 void	parse_input(int ac, char **av, t_list **list)
 {
@@ -38,7 +33,6 @@ void	parse_input(int ac, char **av, t_list **list)
 		free_split(s);
 		free(s);
 }
-
 
 int main(int ac, char **av)
 {
