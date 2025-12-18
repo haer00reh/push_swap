@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 14:21:05 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:22:26 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int main(int ac, char **av)
 	t_stack	a;
 	t_stack	b;
 
+	list = NULL;
 	if (ac < 2)
 		return (-1);
 	if (ac >= 2)
