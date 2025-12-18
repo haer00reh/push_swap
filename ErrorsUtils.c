@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:31:33 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 17:43:16 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:57:35 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	HasDup(t_list *list)
 				return (1);
 			j = j->next;
 		}
-
 		i = i->next;
 	}
 	return (0);
@@ -69,5 +68,5 @@ int	check(t_stack *a)
 		return(1);
 	if (HasDup(a->top))
 		ExitError();
-	return (0);	
+	return (0);
 }

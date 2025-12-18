@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 17:37:14 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 18:31:34 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,18 @@ void	parse_input(int ac, char **av, t_list **list)
 			j++;
 		}
 		i++;
-		}
 		free_split(s);
 		free(s);
+		}
 }
 
 void	print_stack(t_stack *a)
 {
-	while (a->top)
+	t_list *tmp = a->top;
+	while (tmp)
 	{
-		printf("%d\n", a->top->content);
-		a->top = a->top->next;
+		printf("%d\n", tmp->content);
+		tmp = tmp->next;
 	}
 }
 
@@ -67,5 +68,7 @@ int main(int ac, char **av)
 	b.size = 0;
 	print_stack(&a);
 	}
+	ft_lstclear(&a.top);
+	ft_lstclear(&b.top);
 	return (0);
 }

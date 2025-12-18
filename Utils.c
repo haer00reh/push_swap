@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:42:35 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 16:29:39 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 18:26:44 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	**ft_split(char *str, char sep)
 
 	int (words), (i), (len);
 	words = count_words(str, sep);
-	split = malloc(sizeof(char *) * (words));
+	split = malloc(sizeof(char *) * (words + 1));
 	if (!split)
 		return (NULL);
 	i = 0;
