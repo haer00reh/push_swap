@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:46:13 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/17 19:37:31 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:16:17 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(int content);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	del(void *content);
 
 
 

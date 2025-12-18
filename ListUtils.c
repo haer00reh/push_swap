@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   ListUtils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 16:13:06 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/17 19:38:48 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:16:23 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ t_list	*ft_lstnew(int	content)
 	new->in_lis = 0;
 	new->next = NULL;
 	return (new);
-}
-
-void	del(void *content)
-{
-	free(content);
 }
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))

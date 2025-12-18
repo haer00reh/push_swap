@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 14:44:23 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:16:09 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ int main(int ac, char **av)
 	parse_input(ac, av, &list);
 	a.top = list;
 	a.size = ft_lstsize(list);
-	check(&a);
+		if (check(&a))
+		{
+			ft_lstclear(&a.top, free);
+			return (0);
+		}
 	b.top = NULL;
 	b.size = 0;
 	}
