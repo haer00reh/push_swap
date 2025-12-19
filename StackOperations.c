@@ -6,12 +6,11 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 20:01:32 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/19 15:30:35 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/19 16:50:10 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	sa(t_stack *a)
 {
@@ -48,4 +47,36 @@ void	ss(t_stack *a, t_stack *b)
 	sa(&a);
 	sb(&b);
 	write(1, "ss\n", 3);
+}
+
+void	pa(t_stack *a, t_stack *b)
+{
+	t_list *tmp;
+
+	if (!b || b->size == 0)
+		return ;
+	tmp = b->top;
+	b->top = tmp->next;
+	b->size--;
+	
+	tmp->next = a->top;
+	a->top = tmp;
+	a->size++;
+	write(1, "pa\n", 3);
+}
+
+void	pb(t_stack *a, t_stack *b)
+{
+	t_list *tmp;
+
+	if (!a || a->size == 0)
+		return ;
+	tmp = a->top;
+	a->top = tmp->next;
+	a->size--;
+
+	tmp->next = b->top;
+	b->top = tmp;
+	b->size++;
+	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/19 15:25:10 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/19 18:47:21 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int main(int ac, char **av)
 		}
 	b.top = NULL;
 	b.size = 0;
-	sa(&a);
+	rra(&a);
 	print_stack(&a);
 	}
 	ft_lstclear(&a.top);
