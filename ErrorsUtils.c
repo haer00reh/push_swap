@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:31:33 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/18 20:08:03 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/19 19:52:42 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	check(t_stack *a)
 	if (OutOfRange(a->top))
 		ExitError();
 	if (IsSorted(a->top))
-		return(1);
+		exit(0);
 	if (HasDup(a->top))
 		ExitError();
 	return (0);
