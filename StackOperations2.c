@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:21:17 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/19 18:53:32 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/20 13:39:59 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	rb(t_stack *b)
 	first = b->top;
 	b->top = first->next;
 	first->next = NULL;
-	
 	last = b->top;
 	while (last->next)
 		last = last->next;
@@ -85,4 +84,11 @@ void	rrb(t_stack *b)
 	last->next = b->top;
 	b->top = last;
 	write(1, "rrb\n", 4);
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(&a);
+	rb(&b);
+	write(1, "rr\n", 3);
 }

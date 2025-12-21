@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/19 18:47:21 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/21 15:31:17 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_stack(t_stack *a)
 	t_list *tmp = a->top;
 	while (tmp)
 	{
-		printf("%d\n", tmp->content);
+		printf("content: %d\nindex: %d\n", tmp->content, tmp->index);
 		tmp = tmp->next;
 	}
 }
@@ -62,11 +62,10 @@ int main(int ac, char **av)
 		{
 			ft_lstclear(&a.top);
 			ExitError();
-			return (0);
 		}
 	b.top = NULL;
 	b.size = 0;
-	rra(&a);
+	t_index(&a);
 	print_stack(&a);
 	}
 	ft_lstclear(&a.top);

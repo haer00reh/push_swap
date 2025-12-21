@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 20:01:32 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/19 16:50:10 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/20 13:37:30 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	pb(t_stack *a, t_stack *b)
 	tmp = a->top;
 	a->top = tmp->next;
 	a->size--;
-
 	tmp->next = b->top;
 	b->top = tmp;
 	b->size++;
