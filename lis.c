@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 13:58:53 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/22 17:27:46 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/24 18:01:04 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 static int	*stack_to_array(t_stack *a)
 {
-	int	*arr;
+	int		*arr;
 	t_list	*tmp;
 	int		i;
 
+	i = 0;
 	tmp = a->top;
 	arr = malloc(sizeof(int) * a->size);
-		if (!arr)
+	if (!arr)
 		return (NULL);
 	while (tmp)
 	{
@@ -33,7 +34,8 @@ static int	*stack_to_array(t_stack *a)
 
 static void	compute_lis(int *arr, int size, int *prev, int *lis)
 {
-	int	(i), (j);
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size)
@@ -54,7 +56,7 @@ static void	compute_lis(int *arr, int size, int *prev, int *lis)
 	}
 }
 
-static int find_lis_end(int *lis, int size)
+static int	find_lis_end(int *lis, int size)
 {
 	int	i;
 	int	max;
@@ -75,7 +77,7 @@ static int find_lis_end(int *lis, int size)
 	return (pos);
 }
 
-static void mark_lis(t_stack *a, int *arr, int *prev, int pos)
+static void	mark_lis(t_stack *a, int *arr, int *prev, int pos)
 {
 	t_list	*tmp;
 
@@ -108,8 +110,13 @@ void	find_lis(t_stack *a)
 	lis = malloc(sizeof(int) * a->size);
 	prev = malloc(sizeof(int) * a->size);
 	if (!lis || !prev)
+	{
+		free(arr);
+		free(lis);
+		free(prev);
 		return ;
-	compute_lis(arr, a->size, lis, prev);
+	}
+	compute_lis(arr, a->size, prev, lis);
 	end = find_lis_end(lis, a->size);
 	mark_lis(a, arr, prev, end);
 	free(arr);

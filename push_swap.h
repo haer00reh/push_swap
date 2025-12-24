@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:46:13 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/21 15:31:18 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/24 17:29:11 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+void	find_lis(t_stack *a);
 char	**ft_split(char *str, char sep);
 void	free_split(char **split);
 int		count_words(char *str, char sep);
