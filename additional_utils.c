@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:27:45 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/21 15:31:49 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/26 14:58:31 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	isort(int *arr, int len)
 		arr[j + 1] = k;
 		i++;
 	}
-	
 }
 
 void	assign_index(t_stack *a, int *arr)
