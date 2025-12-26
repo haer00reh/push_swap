@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/24 20:54:04 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/26 13:22:57 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int main(int ac, char **av)
 	b.top = NULL;
 	b.size = 0;
 	find_lis(&a);
+	apply_algorithms(&a, &b);
 	print_stack(&a);
 	}
 	ft_lstclear(&a.top);

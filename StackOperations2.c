@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 16:21:17 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/20 13:39:59 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:05:22 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	rrb(t_stack *b)
 
 void	rr(t_stack *a, t_stack *b)
 {
-	ra(&a);
-	rb(&b);
+	ra(a);
+	rb(b);
 	write(1, "rr\n", 3);
 }

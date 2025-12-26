@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 20:01:32 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/20 13:37:30 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:05:49 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	sb(t_stack *b)
 
 void	ss(t_stack *a, t_stack *b)
 {
-	sa(&a);
-	sb(&b);
+	sa(a);
+	sb(b);
 	write(1, "ss\n", 3);
 }
 

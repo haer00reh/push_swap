@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:46:13 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/24 17:29:11 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:02:39 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	print_stack(t_stack *a);
 void	t_index(t_stack *a);
 void	assign_index(t_stack *a, int *arr);
 void	isort(int *arr, int len);
+void	find_lis(t_stack *a);
+void	apply_algorithms(t_stack *a, t_stack *b);
 
 
 #endif
