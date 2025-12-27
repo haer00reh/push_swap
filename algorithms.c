@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:03:41 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/27 17:16:06 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/27 18:39:38 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	calculate_cost(int pos_b, int pos_a, int size_b, int size_a)
 {
 	int	cost_a;
 	int	cost_b;
-	int	cost;
 
 	if (pos_b <= size_b / 2)
 		cost_b = pos_b;
@@ -26,17 +25,7 @@ static int	calculate_cost(int pos_b, int pos_a, int size_b, int size_a)
 		cost_a = pos_a;
 	else
 		cost_a = size_a - pos_a;
-	if ((pos_b <= size_b / 2 && pos_a <= size_a / 2)
-		|| (pos_b > size_b / 2 && pos_a > size_a / 2))
-	{
-		if (cost_b > cost_a)
-			cost = cost_b;
-		else
-			cost = cost_a;
-	}
-	else
-		cost = cost_b + cost_a;
-	return (cost + 1);
+	return (cost_a + cost_b + 1);
 }
 
 static void	find_cheapest_move(t_stack *b, t_stack *a, int *best_pos)
@@ -65,49 +54,41 @@ static void	find_cheapest_move(t_stack *b, t_stack *a, int *best_pos)
 	}
 }
 
-static void	combined_rotations(t_stack *a, t_stack *b, int *pos_b,
-							int *target_pos)
+static void	rotate_both_forward(t_stack *a, t_stack *b, int *pos_b,
+						int *target_pos)
 {
-	int	rotate_b_forward;
-	int	rotate_a_forward;
-
-	rotate_b_forward = (*pos_b <= b->size / 2);
-	rotate_a_forward = (*target_pos <= a->size / 2);
-	if (rotate_b_forward && rotate_a_forward)
+	while (*pos_b > 0 && *target_pos > 0)
 	{
-		while (*pos_b > 0 && *target_pos > 0)
-		{
-			rr(a, b);
-			(*pos_b)--;
-			(*target_pos)--;
-		}
-	}
-	else if (!rotate_b_forward && !rotate_a_forward)
-	{
-		while (*pos_b < b->size && *target_pos < a->size)
-		{
-			rrr(a, b);
-			(*pos_b)++;
-			(*target_pos)++;
-		}
+		rr(a, b);
+		(*pos_b)--;
+		(*target_pos)--;
 	}
 }
 
-static void	finish_rotations(t_stack *a, t_stack *b, int pos_b,
-							int target_pos)
+static void	rotate_both_backward(t_stack *a, t_stack *b, int *pos_b,
+						int *target_pos)
 {
-	int	rotate_b_forward;
-	int	rotate_a_forward;
+	while (*pos_b < b->size && *target_pos < a->size)
+	{
+		rrr(a, b);
+		(*pos_b)++;
+		(*target_pos)++;
+	}
+}
 
-	rotate_b_forward = (pos_b <= b->size / 2);
-	rotate_a_forward = (target_pos <= a->size / 2);
-	if (rotate_b_forward)
+static void	rotate_single_b(t_stack *b, int pos_b, int forward)
+{
+	if (forward)
 		while (pos_b-- > 0)
 			rb(b);
 	else
 		while (pos_b++ < b->size)
 			rrb(b);
-	if (rotate_a_forward)
+}
+
+static void	rotate_single_a(t_stack *a, int target_pos, int forward)
+{
+	if (forward)
 		while (target_pos-- > 0)
 			ra(a);
 	else
@@ -117,8 +98,17 @@ static void	finish_rotations(t_stack *a, t_stack *b, int pos_b,
 
 static void	execute_move(t_stack *a, t_stack *b, int pos_b, int target_pos)
 {
-	combined_rotations(a, b, &pos_b, &target_pos);
-	finish_rotations(a, b, pos_b, target_pos);
+	int	rotate_b_forward;
+	int	rotate_a_forward;
+
+	rotate_b_forward = (pos_b <= b->size / 2);
+	rotate_a_forward = (target_pos <= a->size / 2);
+	if (rotate_b_forward && rotate_a_forward)
+		rotate_both_forward(a, b, &pos_b, &target_pos);
+	else if (!rotate_b_forward && !rotate_a_forward)
+		rotate_both_backward(a, b, &pos_b, &target_pos);
+	rotate_single_b(b, pos_b, rotate_b_forward);
+	rotate_single_a(a, target_pos, rotate_a_forward);
 	pa(a, b);
 }
 
@@ -279,23 +269,6 @@ static int	count_lis(t_stack *a)
 	return (i);
 }
 
-static int	find_min_position(t_stack *a)
-{
-	int		pos;
-	t_list	*tmp;
-
-	pos = 0;
-	tmp = a->top;
-	while (tmp)
-	{
-		if (tmp->index < __INT_MAX__)
-			break ;
-		pos++;
-		tmp = tmp->next;
-	}
-	return (pos);
-}
-
 static void	rotate_to_position(t_stack *a, int pos)
 {
 	if (pos <= a->size / 2)
@@ -306,7 +279,7 @@ static void	rotate_to_position(t_stack *a, int pos)
 			rra(a);
 }
 
-static void	rotate_to_smallest(t_stack *a, int lis_len)
+static void	rotate_to_smallest(t_stack *a)
 {
 	int		pos;
 	int		min_index;
@@ -334,7 +307,7 @@ static void	push_with_sort(t_stack *a, t_stack *b, int median)
 
 	elem_index = a->top->index;
 	pb(a, b);
-	if (b->size > 1 && elem_index < median / 2)
+	if (b->size > 1 && elem_index < median)
 		rb(b);
 }
 
@@ -349,7 +322,7 @@ static void	push_non_lis(t_stack *a, t_stack *b, int tp, int median)
 	{
 		if (!a->top->in_lis)
 		{
-			if (tp > 5)
+			if (tp > 2)
 				push_with_sort(a, b, median);
 			else
 				pb(a, b);
@@ -374,8 +347,8 @@ void	apply_algorithms(t_stack *a, t_stack *b)
 
 	lis_len = count_lis(a);
 	tp = a->size - lis_len;
-	median = a->size / 2;
+	median = (a->size * 3) / 7;
 	push_non_lis(a, b, tp, median);
 	push_back_to_a(a, b);
-	rotate_to_smallest(a, a->size);
+	rotate_to_smallest(a);
 }

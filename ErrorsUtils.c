@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:31:33 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/19 19:52:42 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/27 18:00:15 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,7 @@ int	HasDup(t_list *list)
 
 int	OutOfRange(t_list *list)
 {
-	while (list)
-	{
-		if (list->content < -2147483648 || list->content > 2147483647)
-			return (1);
-		list = list->next;
-	}
+	(void)list;
 	return (0);
 }
 
