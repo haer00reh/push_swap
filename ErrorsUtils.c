@@ -49,7 +49,12 @@ int	HasDup(t_list *list)
 
 int	OutOfRange(t_list *list)
 {
-	(void)list;
+	while (list)
+	{
+		if (list->content < -2147483648 || list->content > 2147483647)
+			return (1);
+		list = list->next;
+	}
 	return (0);
 }
 
