@@ -78,5 +78,7 @@ int	main(int ac, char **av)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	ft_lstclear(&a.top);
+	ft_lstclear(&b.top);
 	return (0);
 }

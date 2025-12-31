@@ -30,6 +30,7 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+void	ft_lstclear(t_list **lst);
 void	c_rrr(t_stack *a, t_stack *b);
 void	c_rr(t_stack *a, t_stack *b);
 void	c_rrb(t_stack *b);
