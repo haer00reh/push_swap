@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 		return (-1);
 	begin_init(ac, av, &a, &b);
 	checker(&a, &b);
-	if (is_sorted(a.top))
+	if (is_sorted(a.top) && b.size == 0)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
