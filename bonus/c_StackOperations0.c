@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   StackOperations0.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 15:45:52 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/31 15:53:03 by haer-reh         ###   ########.fr       */
+/*   Created: 2025/12/20 13:40:40 by haer-reh          #+#    #+#             */
+/*   Updated: 2025/12/31 14:42:31 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int main(int ac, char **av)
+void	c_rrr(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
-
-	if (ac < 2)
-		return (-1);
-	if (ac >= 2)
-	{
-	begin_init(ac, av, &a, &b);
-		if (a.size > 5)
-		{
-		find_lis(&a);
-		apply_algorithms(&a, &b);
-		}
-		else
-		simple_sort(&a, &b);
-	}
-	ft_lstclear(&a.top);
-	ft_lstclear(&b.top);
-	return (0);
+	c_rra(a);
+	c_rrb(b);
 }

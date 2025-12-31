@@ -6,7 +6,7 @@
 /*   By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 15:46:13 by haer-reh          #+#    #+#             */
-/*   Updated: 2025/12/30 20:28:47 by haer-reh         ###   ########.fr       */
+/*   Updated: 2025/12/31 14:21:57 by haer-reh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ void	rotate_to_position(t_stack *a, int pos);
 void	sort_five(t_stack *a, t_stack *b);
 void	simple_sort(t_stack *a, t_stack *b);
 void 	sort_four(t_stack *a, t_stack *b);
+void	begin_init(int ac, char **av, t_stack *a, t_stack *b);
 
 #endif
