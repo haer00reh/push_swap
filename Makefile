@@ -6,7 +6,7 @@
 #    By: haer-reh <haer-reh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/30 20:41:17 by haer-reh          #+#    #+#              #
-#    Updated: 2025/12/31 15:52:20 by haer-reh         ###   ########.fr        #
+#    Updated: 2025/12/31 17:53:41 by haer-reh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,4 +42,4 @@ clean:
 	rm -f $(OBJ) $(B_OBJ)
 fclean: clean
 	rm -f $(NAME) $(B_NAME)
-re: fclean all
+re: fclean all bonus
